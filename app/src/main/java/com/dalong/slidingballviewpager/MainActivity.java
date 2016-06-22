@@ -1,12 +1,14 @@
 package com.dalong.slidingballviewpager;
 
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
-import com.dalong.zwlviewpager.SlidingBallPageTransformer;
 import com.dalong.zwlviewpager.SlidingBallViewPager;
 
 import java.util.ArrayList;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public List<Item> mlist=new ArrayList<>();
 
     private int[] mImgs ={R.mipmap.meinv1,R.mipmap.meinv2,R.mipmap.meinv3,R.mipmap.meinv4,R.mipmap.meinv5};
+
     private MyViewpagerAdapter adapter;
 
     @Override
@@ -61,13 +64,27 @@ public class MainActivity extends AppCompatActivity {
         adapter=new MyViewpagerAdapter(this,mlist);
         mViewPager.setAdapter(adapter);
         //设置缓存数为展示的数目
-        mViewPager.setOffscreenPageLimit(mImgs.length);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
         //设置切换动画
-        mViewPager.setPageTransformer(true, new SlidingBallPageTransformer());
+        mViewPager.setPageTransformer(true, new SlidingBallPageTransformer(0.7f,0.6f));
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+                if (mViewPager_Bg != null) {
+                    mViewPager_Bg.invalidate();
+                }
+            }
+            @Override
+            public void onPageSelected(int i) {}
+            @Override
+            public void onPageScrollStateChanged(int i) {}
+        });
         adapter.setOnItemClickListener(new MyViewpagerAdapter.OnItemClickListener() {
             @Override
             public void onClick(int position) {
+//                Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_LONG).show();
+                Log.v("090909","position:"+position);
                 mViewPager.setCurrentItem(position);
             }
         });

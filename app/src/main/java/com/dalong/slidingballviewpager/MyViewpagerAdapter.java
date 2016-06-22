@@ -2,6 +2,7 @@ package com.dalong.slidingballviewpager;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,15 +38,13 @@ public class MyViewpagerAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, final int position) {
         final Item item=list.get(position);
         final View view= LayoutInflater.from(mContext).inflate(R.layout.item_fancycoverflow,null);
-        view.setTag(position);
         CircleImageView  mIcon=(CircleImageView)view.findViewById(R.id.profile_image);
         TextView mName= (TextView) view.findViewById(R.id.name);
         Button mBtn= (Button) view.findViewById(R.id.item_btn);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,""+(int)view.getTag(),Toast.LENGTH_LONG).show();
-                if(mOnItemClickListener!=null)mOnItemClickListener.onClick((int)view.getTag());
+                if(mOnItemClickListener!=null)mOnItemClickListener.onClick(position);
             }
         });
         mIcon.setImageResource(item.getImg());
@@ -60,7 +59,7 @@ public class MyViewpagerAdapter extends PagerAdapter {
     }
 
     @Override
-    public void destroyItem(ViewGroup container, int position, Object object) {
+    public void destroyItem(ViewGroup container, final int position, Object object) {
         View view = (View) object;
         container.removeView(view);
     }

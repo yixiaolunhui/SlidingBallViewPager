@@ -1,9 +1,11 @@
 package com.dalong.slidingballviewpager;
 
+import java.io.Serializable;
+
 /**
  * Created by zhouweilong on 15/12/14.
  */
-public class Item {
+public class Item  implements Serializable{
     private int position;
     private int img;
     private String name;

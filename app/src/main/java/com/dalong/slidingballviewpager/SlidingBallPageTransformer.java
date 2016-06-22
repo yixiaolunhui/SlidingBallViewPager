@@ -1,4 +1,4 @@
-package com.dalong.zwlviewpager;
+package com.dalong.slidingballviewpager;
 
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -32,13 +32,13 @@ public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
 
     @Override
     public void transformPage(View page, float position) {
-        Log.v("transformPage","position:"+position);
         int pageWidth = page.getWidth();
         int pageHeight = page.getHeight();
         if (position < -1) { // [-Infinity,-1) 此范围是停止滑动左边屏幕的部分
             page.setAlpha(mAlpha);
             page.setScaleX(mScale);
             page.setScaleY(mScale);
+            page.findViewById(R.id.item_btn).setAlpha(0);
         } else if (position <= 1) { // [-1,1]  滑动过程中的设置view的缩放和通明度
             float scaleFactor = Math.max(mScale, 1 - Math.abs(position));
             float vertMargin = pageHeight * (1 - scaleFactor) / 2;
@@ -53,15 +53,15 @@ public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
                 page.setScaleX(1 - (1-mScale) * position);
                 page.setScaleY(1 - (1-mScale) * position);
             }
-
-            // 设置通明度在最低mAlpha 到1的通明度
+            //设置通明度在最低mAlpha 到1的通明度
             page.setAlpha(mAlpha + (scaleFactor - mScale) / (1 - mScale) * (1 - mAlpha));
-
+            //设置按钮渐变显示
+            page.findViewById(R.id.item_btn).setAlpha(1 - Math.abs(position));
         } else { // (1,+Infinity] 这个范围是停止滑动的右面部分
             page.setAlpha(mAlpha);
             page.setScaleX(mScale);
             page.setScaleY(mScale);
-
+            page.findViewById(R.id.item_btn).setAlpha(0);
         }
     }
 }
