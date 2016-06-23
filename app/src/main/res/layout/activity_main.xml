@@ -11,17 +11,15 @@
         android:id="@+id/mViewPager_Bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
         android:layout_centerInParent="true"
-        android:clipChildren="false"
-        >
+        android:clipChildren="false">
 
         <com.dalong.zwlviewpager.SlidingBallViewPager
             android:id="@+id/mViewPager"
-            android:layout_width="120dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginRight="120dp"
-            android:background="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:clipToPadding="false"
+            android:paddingLeft="120dp"
+            android:paddingRight="120dp"
             android:clipChildren="false"
             android:layout_height="160dp"/>
 

@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -46,8 +48,41 @@ public class MainActivity extends AppCompatActivity {
                 return mViewPager.dispatchTouchEvent(event);
             }
         });
+        /**
+         * viewpager的页面切换回调
+         */
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+                if (mViewPager_Bg != null) {
+                    mViewPager_Bg.invalidate();//viewpagr滑动的父布局刷新   部分手机滑动bug
+                }
+            }
+            @Override
+            public void onPageSelected(int i) {}
+            @Override
+            public void onPageScrollStateChanged(int i) {}
+        });
+        /**
+         * 点击viewpager点击回调
+         */
+        adapter.setOnItemClickListener(new MyViewpagerAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(int position) {
+                if(position==mViewPager.getCurrentItem()){//中间位置
+                    Toast.makeText(MainActivity.this,"你和她相隔:"+mlist.get(position).getName(),Toast.LENGTH_LONG).show();
+                    //do something....
+                }else{//两边位置  点击切换到中间
+                    mViewPager.setCurrentItem(position);
+                }
+
+            }
+        });
     }
 
+    /**
+     * 初始化数据
+     */
     private void initData() {
         for (int i=0;i<mImgs.length;i++){
             Item item=new Item();
@@ -58,35 +93,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     *  初始化view
+     */
     private void initView() {
         mViewPager_Bg=(RelativeLayout)findViewById(R.id.mViewPager_Bg);
         mViewPager=(SlidingBallViewPager)findViewById(R.id.mViewPager);
         adapter=new MyViewpagerAdapter(this,mlist);
         mViewPager.setAdapter(adapter);
         //设置缓存数为展示的数目
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
         //设置切换动画
         mViewPager.setPageTransformer(true, new SlidingBallPageTransformer(0.7f,0.6f));
-        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int i, float v, int i1) {
-                if (mViewPager_Bg != null) {
-                    mViewPager_Bg.invalidate();
-                }
-            }
-            @Override
-            public void onPageSelected(int i) {}
-            @Override
-            public void onPageScrollStateChanged(int i) {}
-        });
-        adapter.setOnItemClickListener(new MyViewpagerAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(int position) {
-//                Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_LONG).show();
-                Log.v("090909","position:"+position);
-                mViewPager.setCurrentItem(position);
-            }
-        });
     }
 }

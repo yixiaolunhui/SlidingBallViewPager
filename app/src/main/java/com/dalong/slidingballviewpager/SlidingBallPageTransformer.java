@@ -32,6 +32,7 @@ public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
 
     @Override
     public void transformPage(View page, float position) {
+        position-=1;
         int pageWidth = page.getWidth();
         int pageHeight = page.getHeight();
         if (position < -1) { // [-Infinity,-1) 此范围是停止滑动左边屏幕的部分
