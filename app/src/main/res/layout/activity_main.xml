@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/qq"
+    android:background="@color/color_view_bg"
     tools:context="com.dalong.slidingballviewpager.MainActivity">
 
     <RelativeLayout
