@@ -9,7 +9,7 @@ import com.dalong.zwlviewpager.ViewPager;
  * Created by zwl on 16/6/22.
  */
 
-public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
+public class SlidingBallPageTransformer2 implements ViewPager.PageTransformer {
 
     private  float mScale = 0.5f;//缩放比例
 
@@ -18,14 +18,14 @@ public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
     /**
      * 构造方法
      */
-    public SlidingBallPageTransformer(){}
+    public SlidingBallPageTransformer2(){}
 
     /**
      * 构造方法
      * @param mScale 缩放比例
      * @param mAlpha 透明度
      */
-    public SlidingBallPageTransformer(float mScale,float mAlpha){
+    public SlidingBallPageTransformer2(float mScale,float mAlpha){
         this.mAlpha=mAlpha;
         this.mScale=mScale;
     }
@@ -45,12 +45,13 @@ public class SlidingBallPageTransformer implements ViewPager.PageTransformer {
             float vertMargin = pageHeight * (1 - scaleFactor) / 2;
             float horzMargin = pageWidth * (1 - scaleFactor) / 2;
             if (position < 0) {
-                page.setTranslationX(horzMargin - vertMargin / 2);
+//                page.setTranslationX(horzMargin - vertMargin / 2);
+                page.setTranslationY(vertMargin-horzMargin / 2);
                 page.setScaleX(1 + (1-mScale) * position);
                 page.setScaleY(1 + (1-mScale) * position);
             } else {
-                page.setTranslationX(-horzMargin + vertMargin / 2);
-
+//                page.setTranslationX(-horzMargin + vertMargin / 2);
+                page.setTranslationY(-vertMargin + horzMargin / 2);
                 page.setScaleX(1 - (1-mScale) * position);
                 page.setScaleY(1 - (1-mScale) * position);
             }
