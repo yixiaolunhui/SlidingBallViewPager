@@ -14,6 +14,7 @@
         android:id="@+id/mHorizontalViewPager_Bg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="visible"
         android:clipChildren="false">
 
         <com.dalong.zwlviewpager.SlidingBallViewPager
@@ -43,11 +44,9 @@
             android:id="@+id/mVerticalViewPager"
             android:layout_width="160dp"
             android:clipChildren="false"
-            android:paddingTop="100dp"
-            android:paddingBottom="100dp"
             android:clipToPadding="false"
             app:orientation="vertical"
-            android:layout_height="match_parent"/>
+            android:layout_height="300dp"/>
 
     </RelativeLayout>
 

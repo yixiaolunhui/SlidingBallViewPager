@@ -2,6 +2,7 @@ package com.dalong.slidingballviewpager;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -156,5 +157,10 @@ public class MainActivity extends AppCompatActivity {
         mVerticalViewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
         //设置切换动画
         mVerticalViewPager.setPageTransformer(true, new SlidingBallPageTransformer2(0.5f,0.6f));
+
+        int height=DensityUtil.dip2px(this,300);
+        Log.v("000000","height:"+height);
+        mVerticalViewPager.setPadding(0,height/3,0,height/3);
+
     }
 }

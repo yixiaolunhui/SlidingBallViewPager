@@ -1,5 +1,6 @@
 package com.dalong.slidingballviewpager;
 
+import android.util.Log;
 import android.view.View;
 
 import com.dalong.zwlviewpager.ViewPager;
@@ -35,6 +36,7 @@ public class SlidingBallPageTransformer2 implements ViewPager.PageTransformer {
         position-=1;
         int pageWidth = page.getWidth();
         int pageHeight = page.getHeight();
+        Log.v("000000","pageHeight:"+pageHeight);
         if (position < -1) { // [-Infinity,-1) 此范围是停止滑动左边屏幕的部分
             page.setAlpha(mAlpha);
             page.setScaleX(mScale);

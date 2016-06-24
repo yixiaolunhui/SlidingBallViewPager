@@ -3,4 +3,4 @@
   欢迎star,如果有问题可以给我留言。
   
 ##效果图
-![image](https://github.com/dalong982242260/SlidingBallViewPager/blob/master/img/qqshenbianren.gif)
+![image](https://github.com/dalong982242260/SlidingBallViewPager/blob/master/img/qqshenbianren2.gif)
