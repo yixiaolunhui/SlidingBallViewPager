@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
          */
         mHorizontalViewPager.setAdapter(adapter);
         //设置缓存数为展示的数目
-        mHorizontalViewPager.setOffscreenPageLimit(4);
+        mHorizontalViewPager.setOffscreenPageLimit(mlist.size());
         mHorizontalViewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));
         //设置切换动画
         mHorizontalViewPager.setPageTransformer(true, new SlidingBallPageTransformer(0.7f,0.6f));

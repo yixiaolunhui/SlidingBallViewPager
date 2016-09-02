@@ -21,8 +21,8 @@
             android:id="@+id/mHorizontalViewPager"
             android:layout_width="match_parent"
             android:clipToPadding="false"
-            android:paddingLeft="120dp"
-            android:paddingRight="120dp"
+            android:paddingLeft="140dp"
+            android:paddingRight="140dp"
             app:orientation="horizontal"
             android:clipChildren="false"
             android:layout_height="160dp"/>
@@ -46,7 +46,7 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             app:orientation="vertical"
-            android:layout_height="300dp"/>
+            android:layout_height="match_parent"/>
 
     </RelativeLayout>
 
