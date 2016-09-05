@@ -1,6 +1,5 @@
 package com.dalong.slidingballviewpager;
 
-import android.util.Log;
 import android.view.View;
 
 import com.dalong.zwlviewpager.ViewPager;
