@@ -138,10 +138,12 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
         // This might be null if a fragment is being used
         // and the views weren't created yet
         if (currentCard != null) {
+            //当设置可以缩放 按指定缩放设置
             if (mScalingEnabled) {
-                currentCard.setScaleX((float) (1 + mScale * (1 - realOffset)));
-                currentCard.setScaleY((float) (1 + mScale * (1 - realOffset)));
+                currentCard.setScaleX(1 + mScale * (1 - realOffset));
+                currentCard.setScaleY(1 + mScale * (1 - realOffset));
             }
+            //当设置可以设置透明度的时候设置透明度
             if(mAlphaEnabled){
                 currentCard.setAlpha(1-realOffset+mAlpha);
                 currentCard.findViewById(R.id.item_btn).setAlpha(1-realOffset);
@@ -155,10 +157,12 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
         // We might be scrolling fast enough so that the next (or previous) card
         // was already destroyed or a fragment might not have been created yet
         if (nextCard != null) {
+            //当设置可以缩放 按指定缩放设置
             if (mScalingEnabled) {
-                nextCard.setScaleX((float) (1 + mScale * (realOffset)));
-                nextCard.setScaleY((float) (1+ mScale * (realOffset)));
+                nextCard.setScaleX(1 + mScale * (realOffset));
+                nextCard.setScaleY(1 + mScale * (realOffset));
             }
+            //当设置可以设置透明度的时候设置透明度
             if(mAlphaEnabled){
                 nextCard.setAlpha(realOffset+mAlpha);
                 nextCard.findViewById(R.id.item_btn).setAlpha(realOffset);
@@ -166,6 +170,7 @@ public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPa
             nextCard.setCardElevation((baseElevation + baseElevation
                     * (CardAdapter.MAX_ELEVATION_FACTOR - 1) * (realOffset)));
         }
+        //记录最后的
         mLastOffset = positionOffset;
     }
 
