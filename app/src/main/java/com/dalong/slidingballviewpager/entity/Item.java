@@ -1,4 +1,4 @@
-package com.dalong.slidingballviewpager;
+package com.dalong.slidingballviewpager.entity;
 
 import java.io.Serializable;
 

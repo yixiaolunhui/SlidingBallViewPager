@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/alpla_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="设置透明度" />
+            <CheckBox
+                android:id="@+id/is_alpla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否设置" />
+        </LinearLayout>
+
+
+        <SeekBar
+            android:id="@+id/alpla_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:progress="0" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/scale_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:text="设置缩放" />
+
+            <CheckBox
+                android:id="@+id/is_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否设置" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/scale_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:progress="0" />
+
+    </LinearLayout>
+
+    <com.dalong.zwlviewpager.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:clipToPadding="false"
+        app:orientation="vertical"
+        android:overScrollMode="never"
+        android:paddingLeft="@dimen/viewpager_padding"
+        android:paddingRight="@dimen/viewpager_padding"
+        android:paddingTop="@dimen/viewpager_vertical_padding"
+        android:paddingBottom="@dimen/viewpager_vertical_padding" />
+
+</LinearLayout>

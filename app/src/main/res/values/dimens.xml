@@ -5,4 +5,10 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="width">160dp</dimen>
     <dimen name="viewpager_margin">2dp</dimen>
+    <dimen name="card_padding">120dp</dimen>
+
+    <dimen name="viewpager_padding">100dp</dimen>
+    <dimen name="viewpager_vertical_padding">140dp</dimen>
+
+
 </resources>
