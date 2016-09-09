@@ -8,7 +8,7 @@
     <dimen name="card_padding">120dp</dimen>
 
     <dimen name="viewpager_padding">100dp</dimen>
-    <dimen name="viewpager_vertical_padding">140dp</dimen>
+    <dimen name="viewpager_vertical_padding">100dp</dimen>
 
 
 </resources>
