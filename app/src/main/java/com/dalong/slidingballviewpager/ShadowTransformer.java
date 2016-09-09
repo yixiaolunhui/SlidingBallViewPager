@@ -10,7 +10,7 @@ import com.dalong.zwlviewpager.ViewPager;
 public class ShadowTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private  float mScale = 0f;//缩放比例  这里缩放是中间比两边大0.2  也就是说两边是你设定的值  中间缩放到了1.2
-    private  float mAlpha = 0f;//左右透明度
+    private  float mAlpha = 1f;//左右透明度
     private ViewPager mViewPager;
     private CardAdapter mAdapter;
     private float mLastOffset;
